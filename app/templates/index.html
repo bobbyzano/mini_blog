@@ -1,0 +1,89 @@
+   
+{% extends "layout.html" %}
+{% block body %} 
+  
+
+<div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document"></div>
+    <div id="myModal" class="modal fade">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <h4 class="modal-title">Subscribe our Newsletter</h4>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p>Thank you for visiting. While you wait for the big appointment letter, let us work with you on your journey. Please select what you will be interested in.</p>
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
+                        <label class="form-check-label" for="radio-179">Option1:Connect with best HR experts</label>
+                      </div>
+                      <div class="form-check mb-4">
+                        <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
+                        <label class="form-check-label" for="radio-179">Option2:Connect with professionals and get hands on training</label>
+                      </div>
+                      <div class="form-check mb-4">
+                        <input class="form-check-input" name="group1" type="radio" id="radio-179" value="option1" checked>
+                        <label class="form-check-label" for="radio-179">Option3:Follow your true passion</label>
+                      </div>
+                    <form>
+
+                       
+
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" placeholder="Email Address">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+{% for post in posts %}
+
+
+<div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <a href="{{ url_for('post',post_id=post.id) }}">
+            <h3>{{post.title}}</h3>
+        </a>
+        
+
+        
+        <h7>{{post.author}}- {{moment(post.date).format('Do MMMM, YYYY.') }}</h7>
+       
+        <p>{{post.content}}</p>
+      </div>
+    </div>
+     
+
+{% endfor %}
+{% if prev_url %}
+<a href="{{ prev_url }}">Older blogs</a>
+{% endif %}
+
+{% if next_url %}
+<a href="{{ next_url }}">Newer blogs</a>
+{% endif%}
+
+
+{% endblock %}

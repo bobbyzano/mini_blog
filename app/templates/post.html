@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %} 
+  
+
+
+
+<div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h3>{{post.title}}</h3>
+        
+        <h7>{{post.author}}- {{moment(post.date).format('Do MMMM, YYYY.') }}</h7>
+       
+        <p>{{post.content}}</p>
+      </div>
+    </div>
+     
+
+{% if prev_url %}
+<a href="{{ prev_url }}">Older blogs</a>
+{% endif %}
+
+{% if next_url %}
+<a href="{{ next_url }}">Newer blogs</a>
+{% endif%}
+
+
+{% endblock %}

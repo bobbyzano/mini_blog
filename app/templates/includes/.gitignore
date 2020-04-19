@@ -1,0 +1,4 @@
+database
+venv
+whoosh_index
+migrations
